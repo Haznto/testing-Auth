@@ -10,9 +10,12 @@ module.exports = async (req, res, next) => {
         const [username,password] = base64.decode(EncCredentials).split(":")
         console.log(username,password)
         let user = await useraccount.findOne({where:{username}});
+        console.log(user.username,55555)
         
         userChecker.Checker(user,password).then(data => {
-            req.user = data;
+            console.log(data.username,33333333333333)
+            req.user = data.username;
+            console.log(req.user.username)
             next()
         }).catch(err => next(err))
        
