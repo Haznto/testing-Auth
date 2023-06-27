@@ -22,12 +22,13 @@ useraccount.Checker = async function (username,password) {
         const isValid = await bcrypt.compare(password,username.password);
     
         if(isValid){
-            // const userToken = jwt.sign({username:username.username, password:username.password},SECRET)
-            return username
-            // return {
-            //     username,
-            //     token:userToken
-            // }
+            const userToken = jwt.sign({username:username.username, password:username.password},SECRET)
+            console.log(userToken)
+            // return username
+            return {
+                username,
+                token:userToken
+            }
             
         } else {
             throw new Error('User not Authorized')
