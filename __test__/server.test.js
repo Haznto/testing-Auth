@@ -27,7 +27,7 @@ afterAll(async () => {
           password: '1234'
         });
 
-        const data = await 
+        
         
         expect(res.status).toBe(201);
         expect(res.body.username).toEqual('Jalal')

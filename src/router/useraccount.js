@@ -29,9 +29,9 @@ async function handleSignUp(req,res){
     }
 }
 async function handleSignIn(req,res){
-    if (req.user) {
+    // if (req.user) {
         res.status(200).json(req.user)
-    } 
+    // } 
 }
 
 async function handleTokenRout (req,res) {
