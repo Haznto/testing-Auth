@@ -12,9 +12,9 @@ const useraccount = (sequelize,DataTypes) => sequelize.define('useraccount',{
         type: DataTypes.STRING,
         allowNull:false
     },
-    token: {
-        type: DataTypes.VIRTUAL
-    }
+    // token: {
+    //     type: DataTypes.VIRTUAL
+    // }
 })
 
 useraccount.Checker = async function (username,password) {
