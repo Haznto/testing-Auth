@@ -23,7 +23,7 @@ useraccount.Checker = async function (username,password) {
     
         if(isValid){
             let userToken = jwt.sign({username:username.username, password:username.password},SECRET)
-            // console.log(userToken)
+            console.log(userToken)
             // return username
             return {
                 username,
