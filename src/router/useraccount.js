@@ -30,7 +30,9 @@ async function handleSignUp(req,res){
 }
 async function handleSignIn(req,res){
     // if (req.user) {
-        res.status(200).json(req.user)
+        res.status(200).json({
+            userInformation :req.user
+        })
     // } 
 }
 

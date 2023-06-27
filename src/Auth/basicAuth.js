@@ -13,9 +13,9 @@ module.exports = async (req, res, next) => {
         console.log(user.username,55555)
         
         userChecker.Checker(user,password).then(data => {
-            console.log(data.username.username,33333333333333)
+            console.log(data.username,33333333333333)
             req.user = data;
-            console.log(req.user.username,66666)
+            console.log(req.user.username)
             next()
         }).catch(err => next(err))
        
