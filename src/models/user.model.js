@@ -23,12 +23,9 @@ useraccount.Checker = async function (username,password) {
     
         if(isValid){
             const userToken = jwt.sign({username:username.username, password:username.password},SECRET)
-            console.log(userToken)
+            let object = {username,token:userToken}
             // return username
-            return {
-                username,
-                token:userToken
-            }
+            return object
             
         } else {
             throw new Error('User not Authorized')
