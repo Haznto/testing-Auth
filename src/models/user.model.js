@@ -1,5 +1,7 @@
 'use strict'
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const SECRET = process.env.SECRET;
 const useraccount = (sequelize,DataTypes) => sequelize.define('useraccount',{
     username: {
         type:DataTypes.STRING,
@@ -9,6 +11,9 @@ const useraccount = (sequelize,DataTypes) => sequelize.define('useraccount',{
     password: {
         type: DataTypes.STRING,
         allowNull:false
+    },
+    token: {
+        type: DataTypes.VIRTUAL
     }
 })
 
@@ -17,7 +22,11 @@ useraccount.Checker = async function (username,password) {
         const isValid = await bcrypt.compare(password,username.password);
     
         if(isValid){
-            return username
+            const userToken = jwt.sign({username:username.username, password:username.password},SECRET)
+            return {
+                username,
+                token:userToken
+            }
             
         } else {
             throw new Error('User not Authorized')
