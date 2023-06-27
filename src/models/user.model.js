@@ -22,7 +22,7 @@ useraccount.Checker = async function (username,password) {
         const isValid = await bcrypt.compare(password,username.password);
     
         if(isValid){
-            // const userToken = jwt.sign({username:username.username, password:username.password},SECRET)
+            let userToken = jwt.sign({username:username.username, password:username.password},SECRET)
             // console.log(userToken)
             // return username
             return {
